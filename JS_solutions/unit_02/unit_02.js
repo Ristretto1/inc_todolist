@@ -92,8 +92,8 @@ document.querySelector('.b-10').onclick = t10;
 // По нажатию на кнопку .b-11 выполняется функция t11, которая выводит на страницу в .out-11 число, которое ввел пользователь в i-11 и к нему добавленное число 55. В этой задаче мы не приводим к числу полученное из input.
 
 function t11() {
-    let input11 = document.querySelector('.i-11');
-    document.querySelector('.out-11').innerHTML = input11.value + 55; //Не стал переводить полученное из input в число 
+    let data11 = document.querySelector('.i-11').value;
+    document.querySelector('.out-11').innerHTML = data11 + 55;
 }
 
 document.querySelector('.b-11').onclick = t11;
