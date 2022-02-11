@@ -60,7 +60,7 @@ function f4() {
    let out = document.querySelector('.out-4');
    let value = +document.querySelector('.i-4').value;
 
-   if (value >= 18) {
+   if (2022 - value >= 18) {
       out.innerHTML = 1;
    } else {
       out.innerHTML = 0;
