@@ -3,12 +3,17 @@
 //     1_2_3_4_5_6_7_8_9_10_11_12_13_14_15_16_
 // Разделитель - нижнее подчеркивание. Задача решается с помощью цикла.
 
-
 function t1() {
-
+    let value = '';
+    let out = document.querySelector('.out-1');
+    for (let i = 1; i < 17; i++) {
+        value += i + '_'
+    }
+    out.innerHTML = value;
 }
 
 document.querySelector('.b-1').onclick = t1;
+
 
 //  Task 2
 // Кнопка .b-2 запускает функцию t2. Функция должна выводить в .out-2 строку вида:
@@ -16,7 +21,12 @@ document.querySelector('.b-1').onclick = t1;
 //Разделитель - нижнее подчеркивание. Задача решается с помощью цикла.
 
 function t2() {
-
+    let value = '';
+    let out = document.querySelector('.out-2');
+    for (let i = 12; i < 39; i += 2) {
+        value += i + '_'
+    }
+    out.innerHTML = value;
 }
 
 document.querySelector('.b-2').onclick = t2;
@@ -28,10 +38,16 @@ document.querySelector('.b-2').onclick = t2;
 // Разделитель - нижнее подчеркивание. Задача решается с помощью цикла.
 
 function t3() {
-
+    let value = '';
+    let out = document.querySelector('.out-3');
+    for (let i = 25; i > 6; i--) {
+        value += i + '_'
+    }
+    out.innerHTML = value;
 }
 
 document.querySelector('.b-3').onclick = t3;
+
 
 //  Task 4
 // Кнопка .b-4 запускает функцию t4. Функция должна выводить в .out-4 строку вида:
@@ -40,7 +56,12 @@ document.querySelector('.b-3').onclick = t3;
 
 
 function t4() {
-
+    let value = '';
+    let out = document.querySelector('.out-4');
+    for (let i = 77; i > 34; i -= 3) {
+        value += i + '_'
+    }
+    out.innerHTML = value;
 }
 
 document.querySelector('.b-4').onclick = t4;
@@ -52,7 +73,16 @@ document.querySelector('.b-4').onclick = t4;
 // от 1 до 17 c шагом 1. Разделитель - знак подчеркивания и звездочка (если число нечетное, и две звездочки если четное). Задача решается с помощью цикла.
 
 function t5() {
-
+    let value = '';
+    let out = document.querySelector('.out-5');
+    for (let i = 1; i < 18; i++) {
+        if (i % 2) {
+            value += i + '_*';
+        } else {
+            value += i + '_**';
+        }
+    }
+    out.innerHTML = value;
 }
 
 document.querySelector('.b-5').onclick = t5;
@@ -69,7 +99,14 @@ document.querySelector('.b-5').onclick = t5;
 //
 
 function t6() {
+    let value = +document.querySelector('.i-6').value;
+    let out = document.querySelector('.out-6');
+    let data = '';
 
+    for (let i = 0; i < value; i++) {
+        data += '******<br>'
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-6').onclick = t6;
@@ -83,7 +120,14 @@ document.querySelector('.b-6').onclick = t6;
 // Задача решается с помощью цикла.
 
 function t7() {
+    let value = +document.querySelector('.i-7').value;
+    let out = document.querySelector('.out-7');
+    let data = '';
 
+    for (let i = value; i >= 0; i--) {
+        data += i + '_';
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-7').onclick = t7;
@@ -98,7 +142,15 @@ document.querySelector('.b-7').onclick = t7;
 // Задача решается с помощью цикла.
 
 function t8() {
+    let value1 = +document.querySelector('.i-81').value;
+    let value2 = +document.querySelector('.i-82').value;
+    let out = document.querySelector('.out-8');
+    let data = '';
 
+    for (let i = value1; i <= value2; i++) {
+        data += i + '_';
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-8').onclick = t8;
@@ -115,7 +167,22 @@ document.querySelector('.b-8').onclick = t8;
 // цикл - один
 
 function t9() {
+    let value1 = +document.querySelector('.i-91').value;
+    let value2 = +document.querySelector('.i-92').value;
+    let out = document.querySelector('.out-9');
+    let data = '';
 
+    if (value1 < value2) {
+        for (let i = value1; i <= value2; i++) {
+            data += i + '_';
+        }
+    } else {
+        for (let i = value2; i <= value1; i++) {
+            data += i + '_';
+        }
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-9').onclick = t9;
@@ -126,10 +193,17 @@ document.querySelector('.b-9').onclick = t9;
 // Разделитель - знак подчеркивания. Задача решается через цикл, а четность - через шаг (равный 2).
 
 function t10() {
+    let out = document.querySelector('.out-10');
+    let data = '';
 
+    for (let i = 1950; i <= 1970; i += 2) {
+        data += i + '_';
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-10').onclick = t10;
+
 
 //  Task 11
 // Кнопка .b-11 запускает функцию t11.  Функция должна:
@@ -141,10 +215,18 @@ document.querySelector('.b-10').onclick = t10;
 
 
 function t11() {
+    let divs = document.querySelectorAll('.div-11');
+    let out = document.querySelector('.out-11');
+    let data = '';
 
+    for (let i = 0; i < divs.length; i++) {
+        data += divs[i].innerHTML + '_';
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-11').onclick = t11;
+
 
 //  Task 12
 // Кнопка .b-12 запускает функцию t12.  Функция должна:
@@ -154,19 +236,29 @@ document.querySelector('.b-11').onclick = t11;
 
 
 function t12() {
+    let elem = document.querySelectorAll('.div-12');
 
+    for (let i = 0; i < elem.length; i++) {
+        elem[i].style.background = 'orange';
+    }
 }
 
 document.querySelector('.b-12').onclick = t12;
+
 
 //  Task 13
 // С помощью цикла присвойте всем input .i-13 value равное 1 для первого, 2 для второго и 3 для третьего.
 
 function t13() {
+    let inputs = document.querySelectorAll('.i-13');
 
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = i + 1;
+    }
 }
 
 document.querySelector('.b-13').onclick = t13;
+
 
 //  Task 14
 // Кнопка .b-14 запускает функцию t14  Функция должна:
@@ -176,10 +268,18 @@ document.querySelector('.b-13').onclick = t13;
 
 
 function t14() {
+    let elem = document.querySelectorAll('.i-14');
+    let out = document.querySelector('.out-14');
 
+    for (let i = 0; i < elem.length; i++) {
+        if (elem[i].checked) {
+            out.innerHTML = elem[i].value;
+        }
+    }
 }
 
 document.querySelector('.b-14').onclick = t14;
+
 
 //  Task 15
 // Кнопка .b-15 запускает функцию t15  Функция должна выводить следующую последовательность в .out-15:
@@ -187,7 +287,13 @@ document.querySelector('.b-14').onclick = t14;
 // Подсказка (10 - i) + '_' + i + '_'
 
 function t15() {
+    let out = document.querySelector('.out-15');
+    let data = '';
 
+    for (let i = 0; i <= 10; i++) {
+        data += (10 - i) + '_' + i + '_';
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-15').onclick = t15;
