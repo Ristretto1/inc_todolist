@@ -172,7 +172,24 @@ document.querySelector('.b-8').onclick = t8;
 // Задача решается с помощью цикла. Подсказка - вначале делаем проверку и при необходимости поменять местами значения в переменных местами, а потом запускаем цикл  while.
 
 function t9() {
+    let out = document.querySelector('.out-9');
+    let value1 = +document.querySelector('.i-91').value;
+    let value2 = +document.querySelector('.i-92').value;
+    let data = '';
 
+    if (value1 < value2) {
+        while (value1 <= value2) {
+            data += `${value1}_`;
+            value1++;
+        }
+    } else {
+        while (value2 <= value1) {
+            data += `${value2}_`;
+            value2++;
+        }
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-9').onclick = t9;
@@ -183,10 +200,19 @@ document.querySelector('.b-9').onclick = t9;
 // Разделитель знак подчеркивания. Задача решается через цикл, а четность - через шаг (равный 2).
 
 function t10() {
+    let out = document.querySelector('.out-10');
+    let data = '';
+    let i = 1950;
 
+    while (i <= 1966) {
+        data += `${i}_`;
+        i += 2;
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-10').onclick = t10;
+
 
 //  Task 11
 // Кнопка b-11 запускает функцию t11.  Функция должна:
@@ -196,12 +222,21 @@ document.querySelector('.b-10').onclick = t10;
 //     В результате должно получиться так:
 //     one_3_4_two_
 
-
 function t11() {
+    let out = document.querySelector('.out-11');
+    let divs = document.querySelectorAll('.div-11');
+    let data ='';
+    let i = 0;
 
+    while (i < divs.length){
+        data += divs[i].innerHTML + '_';
+        i++;
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-11').onclick = t11;
+
 
 //  Task 12
 // Кнопка .b-12 запускает функцию t12.  Функция должна:
@@ -209,12 +244,12 @@ document.querySelector('.b-11').onclick = t11;
 // перебрать их с помощью цикла  while. Обращение к div выглядит так elem[i]
 // применить к каждому elem[i].style.background = 'orange'
 
-
 function t12() {
 
 }
 
 document.querySelector('.b-12').onclick = t12;
+
 
 //  Task 13
 // Кнопка .b-13 запускает функцию t13.  Функция должна:
@@ -228,18 +263,19 @@ function t13() {
 
 document.querySelector('.b-13').onclick = t13;
 
+
 //  Task 14
 // Кнопка .b-14 запускает функцию t14  Функция должна:
 //     получить все input.i-14
 // перебрать их с помощью цикла  while. Обращение к элементу выглядит так elem[i]
 // вывести в .out-14 value выбранного. Проверить выбран ли элемент можно с помощью elem[i].checked.
 
-
 function t14() {
 
 }
 
 document.querySelector('.b-14').onclick = t14;
+
 
 //  Task 15
 // Кнопка .b-15 запускает функцию t15  Функция должна выводить следующую последовательность в .out-15:
