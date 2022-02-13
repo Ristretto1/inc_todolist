@@ -32,8 +32,8 @@ document.querySelector('.b-1').onclick = t1;
 function t2() {
     let out = document.querySelector('.out-2');
     let data = '';
-    for (let i = 0; i < 3; i++) {
-        data += `${i + 1} <br>`;
+    for (let i = 1; i < 4; i++) {
+        data += i + '<br>';
         for (let k = 0; k < 3; k++) {
             data += '*_';
         }
