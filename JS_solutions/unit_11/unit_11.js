@@ -111,7 +111,16 @@ document.querySelector('.b-7').onclick = f7;
 let d8 = [2, '4', 12, 67, 'hello'];
 
 function f8() {
-    d8[0] = document.querySelector('.i-8').value;
+    let i8 = document.querySelector('.i-8').value;
+    let temp = [];
+    temp[0] = i8;
+
+    for (let i = 0; i < d8.length; i++) {
+        temp.push(d8[i]);
+    }
+
+    d8 = temp;
+
     showArr('.out-8', d8);
 }
 
@@ -127,7 +136,14 @@ document.querySelector('.b-8').onclick = f8;
 let d9 = [100, 200, 300, 400, 700, 121];
 
 function f9() {
-    d9[0] = '';
+    let temp = [];
+
+    for (let i = 1; i < d9.length; i++) {
+        temp.push(d9[i]);
+    }
+
+    d9 = temp;
+
     showArr('.out-9', d9);
 }
 
@@ -201,6 +217,13 @@ document.querySelector('.b-12').onclick = f12;
 let d13 = [6, 0, 22, 1, 4, 76];
 
 function f13() {
+    let out = [];
+
+    for (let i = d13.length - 1; i >= 0; i--) {
+        out.push(d13[i]);
+    }
+
+    d13 = out;
 
     showArr('.out-13', d13);
 }
@@ -300,9 +323,10 @@ document.querySelector('.b-17').onclick = f17;
 let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
 
 function f18() {
-    let value = document.querySelector('.i-18').value;
-    let out = documnet.querySelector('.i-18');
-    out.innerHTML = d18.include(value);
+    let inputValue = document.querySelector('.i-18').value;
+    let out = document.querySelector('.out-18');
+
+    out.innerHTML = d18.includes(inputValue);
 }
 
 document.querySelector('.b-18').onclick = f18;
