@@ -235,7 +235,7 @@ function f11() {
     let keyValue = document.querySelector('.i-11').value;
     delete a11[keyValue];
 
-    f5 (a11, '.out-11');
+    f5(a11, '.out-11');
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -255,12 +255,12 @@ let a12 = {
 function f12() {
     let dataValue = document.querySelector('.i-12').value;
     for (let key in a12) {
-        if(a12[key] == dataValue) {
+        if (a12[key] == dataValue) {
             delete a12[key];
         }
     }
 
-    f5 (a12, '.out-12');
+    f5(a12, '.out-12');
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -277,7 +277,14 @@ let a13 = {
 };
 
 function f13() {
-
+    let out = document.querySelector('.out-13');
+    let data = 0;
+    for (let key in a13) {
+        if (typeof a13[key] == 'number') {
+            data += a13[key];
+        }
+    }
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -295,7 +302,14 @@ let a14 = {
 };
 
 function f14() {
+    let out = document.querySelector('.out-14');
+    let data = '';
 
+    for (let key in a14) {
+        data += a14[key][0] + ' ';
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -314,7 +328,16 @@ let a15 = {
 };
 
 function f15() {
+    let out = document.querySelector('.out-15');
+    let data = '';
 
+    for (let key in a15) {
+        for (let i = 0; i < a15[key].length; i++) {
+            data += a15[key][i] + ' ';
+        }
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -339,7 +362,14 @@ let a16 = {
 }
 
 function f16() {
+    let out = document.querySelector('.out-16');
+    let data ='';
 
+    for (let key in a16) {
+        data += a16[key]['name'] + ' ';
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -364,7 +394,16 @@ let a17 = {
 }
 
 function f17() {
+    let out = document.querySelector('.out-17');
+    let data = '';
 
+    for (let key in a17) {
+        if (a17[key]['age'] > 30) {
+            data += a17[key]['name'] + ' ';
+        }
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-17').onclick = f17;
@@ -382,6 +421,7 @@ let a18 = {
 function f18() {
 
 }
+
 
 // Task 19
 // При нажатии b-19 выполняете функцию f19. Функция должна в out-19 вывести цвет ветки станции которую пользователь ввел в i-19. Пользователь может вводить текст как с большой, так и с маленькой буквы. Если ветка не найдена - выводите пустую строку.
