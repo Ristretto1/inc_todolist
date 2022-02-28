@@ -363,7 +363,7 @@ let a16 = {
 
 function f16() {
     let out = document.querySelector('.out-16');
-    let data ='';
+    let data = '';
 
     for (let key in a16) {
         data += a16[key]['name'] + ' ';
@@ -419,8 +419,20 @@ let a18 = {
 }
 
 function f18() {
+    let out = document.querySelector('.out-18');
+    let data = '';
+    let value = document.querySelector('.i-18').value;
 
+    if (a18[value] !== undefined) {
+        for (let i = 0; i < a18[value].length; i++) {
+            data += a18[value][i] + ' ';
+        }
+    }
+
+    out.innerHTML = data;
 }
+
+document.querySelector('.b-18').onclick = f18;
 
 
 // Task 19
@@ -434,6 +446,18 @@ let a19 = {
 }
 
 function f19() {
+    let out = document.querySelector('.out-19');
+    let data = '';
+    let value = document.querySelector('.i-19').value;
+
+    for (let key in a19) {
+        for (let i = 0; i < a19[key].length; i++) {
+            if (a19[key][i].toLowerCase() == value.toLowerCase()) {
+                data = key;
+            }
+        }
+    }
+    out.innerHTML = data;
 
 }
 
@@ -450,7 +474,18 @@ let a20 = {
 }
 
 function f20() {
+    let out = document.querySelector('.out-20');
+    let data = '';
 
+    for (let color in a20) {
+        for (let i = 0; i < a20[color].length; i++) {
+            if (a20[color][i][1] == 2) {
+                data += a20[color][i][0] + ' ';
+            }
+        }
+    }
+
+    out.innerHTML = data;
 }
 
 document.querySelector('.b-20').onclick = f20
