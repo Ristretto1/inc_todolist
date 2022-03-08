@@ -1,5 +1,5 @@
 import React from 'react';
-import {TaskType} from "./App";
+import {FilterValueType, TaskType} from "./App";
 import TodoListHeader from "./TodoListHeader";
 import Button from "./Button";
 import TasksList from "./TasksList";
@@ -7,6 +7,8 @@ import TasksList from "./TasksList";
 type TodoListPropsType = {
     title: string,
     tasks: Array<TaskType>,
+    removeTask: (id: number) => void
+    changeFilter: (filter: FilterValueType) => void
 }
 
 const TodoList = (props: TodoListPropsType) => {
@@ -16,15 +18,19 @@ const TodoList = (props: TodoListPropsType) => {
                 <TodoListHeader title={props.title}/>
                 <div>
                     <input/>
+                    {/*<Button name={'+'} callBack={}/>*/}
                     <button>+</button>
                 </div>
 
-                <TasksList tasks={props.tasks}/>
+                <TasksList
+                    tasks={props.tasks}
+                    removeTask ={props.removeTask}
+                />
 
                 <div>
-                    <Button title={'All'}/>
-                    <Button title={'Active'}/>
-                    <Button title={'Completed'}/>
+                    <Button name={'All'} callBack={() => props.changeFilter('all')}/>
+                    <Button name={'Active'} callBack={() => props.changeFilter('active')}/>
+                    <Button name={'Completed'} callBack={() => props.changeFilter('completed')}/>
                 </div>
             </div>
         </div>
