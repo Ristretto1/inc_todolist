@@ -62,6 +62,7 @@ function t8() {
     let data = document.querySelector('.i-8').value; // получили значение
     document.querySelector('.out-8').innerHTML = data;
 }
+
 document.querySelector('.b-8').onclick = t8;
 
 

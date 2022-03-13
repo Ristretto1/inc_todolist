@@ -245,7 +245,7 @@ function f19() {
     let pars = document.querySelectorAll('.p-19');
     let data = '';
 
-    for (let i = 0; i < pars.length; i++){
+    for (let i = 0; i < pars.length; i++) {
         data += pars[i].getAttribute('data-b') + ' ';
     }
 

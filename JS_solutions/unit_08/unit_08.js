@@ -288,7 +288,7 @@ function t14() {
     let i = 0;
 
     while (i < elem.length) {
-        if (elem[i].checked){
+        if (elem[i].checked) {
             out.innerHTML = elem[i].value;
         }
         i++;

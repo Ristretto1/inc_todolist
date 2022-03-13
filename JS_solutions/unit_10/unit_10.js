@@ -401,7 +401,7 @@ function f19() {
     let out = document.querySelector('.out-19');
     let min = ar19[0];
 
-    for (let i = 0; i < ar19.length; i++){
+    for (let i = 0; i < ar19.length; i++) {
         if (ar19[i] < min) {
             min = i;
         }

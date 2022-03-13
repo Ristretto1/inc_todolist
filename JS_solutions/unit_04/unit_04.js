@@ -108,7 +108,7 @@ function f9() {
     let radiobtn = document.querySelector('.r-9');
     let out = document.querySelector('.out-9');
 
-    if(radiobtn.checked) {
+    if (radiobtn.checked) {
         out.innerHTML = radiobtn.value;
     } else {
         out.innerHTML = false;
@@ -178,7 +178,7 @@ function f15() {
     let value = document.querySelector('.i-15').value;
     document.querySelector('.t-15').value = value;
     document.querySelector('.out-15').innerHTML = value;
-    }
+}
 
 document.querySelector('.b-15').onclick = f15;
 
@@ -211,7 +211,7 @@ document.querySelector('.s-17').onchange = f17;
 
 function f18() {
     let select = document.querySelector('.s-18');
-    document.querySelector('.i-18').value = select.value; 
+    document.querySelector('.i-18').value = select.value;
 }
 
 document.querySelector('.s-18').onchange = f18;
