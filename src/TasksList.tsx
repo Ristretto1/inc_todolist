@@ -4,7 +4,7 @@ import Button from "./Button";
 
 type TasksListPropsType = {
     tasks: Array<TaskType>,
-    removeTask: (id: number) => void
+    removeTask: (id: string) => void
 }
 
 const TasksList = (props: TasksListPropsType) => {

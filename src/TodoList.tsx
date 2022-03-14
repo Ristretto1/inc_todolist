@@ -7,7 +7,7 @@ import TasksList from "./TasksList";
 type TodoListPropsType = {
     title: string,
     tasks: Array<TaskType>,
-    removeTask: (id: number) => void
+    removeTask: (id: string) => void
     changeFilter: (filter: FilterValueType) => void
 }
 

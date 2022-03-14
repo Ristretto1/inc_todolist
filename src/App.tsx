@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
 import TodoList from "./TodoList";
+import {v1} from 'uuid';
 
 export type TaskType = {
-    id: number,
+    id: string,
     title: string,
     isDone: boolean
 }
@@ -14,10 +15,10 @@ function App() {
 
     const todoListTitle: string = 'What to learn';
     const initTasks: Array<TaskType> = [
-        {id: 1, title: 'HTML/CSS', isDone: true},
-        {id: 2, title: 'JavaScript/ES6', isDone: true},
-        {id: 3, title: 'TypeScript', isDone: false},
-        {id: 4, title: 'React', isDone: false},
+        {id: v1(), title: 'HTML/CSS', isDone: true},
+        {id: v1(), title: 'JavaScript/ES6', isDone: true},
+        {id: v1(), title: 'TypeScript', isDone: false},
+        {id: v1(), title: 'React', isDone: false},
     ]
 ///////////////////////////////////////////////////////
     let [tasks, setTasks] = useState(initTasks)
@@ -35,7 +36,7 @@ function App() {
         setFilter(value)
     }
 
-    const removeTask = (id:number) => {
+    const removeTask = (id:string) => {
         setTasks(tasks.filter(t => t.id !== id))
     }
 
