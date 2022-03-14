@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import Button from './Button';
 
 type FullInputPropsType = {
@@ -13,6 +13,13 @@ const FullInput: React.FC<FullInputPropsType> = (props) => {
         setTitle(e.currentTarget.value)
     }
 
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if(e.key === 'Enter') {
+            props.addTask(title)
+            setTitle('')
+        }
+    }
+
     const onClickAddTaskHandler = () => {
         props.addTask(title)
         setTitle('')
@@ -20,7 +27,7 @@ const FullInput: React.FC<FullInputPropsType> = (props) => {
 
     return (
         <div>
-            <input value={title} onChange={onChangeInputHandler}/>
+            <input value={title} onChange={onChangeInputHandler} onKeyPress={onKeyPressHandler}/>
             <Button name={'+'} callBack={onClickAddTaskHandler}/>
         </div>
     );
