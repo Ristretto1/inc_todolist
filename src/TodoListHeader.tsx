@@ -4,7 +4,7 @@ type TodoListHeaderPropsType = {
     title: string,
 }
 
-const TodoListHeader = (props: TodoListHeaderPropsType) => {
+const TodoListHeader: React.FC<TodoListHeaderPropsType> = (props) => {
     return (
         <h3>{props.title}</h3>
     );

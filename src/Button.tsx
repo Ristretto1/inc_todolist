@@ -5,7 +5,7 @@ type ButtonPropsType = {
     callBack: () => void
 }
 
-const Button = (props: ButtonPropsType) => {
+const Button: React.FC<ButtonPropsType> = (props) => {
     const onClickHandler = () => {
         props.callBack()
     }

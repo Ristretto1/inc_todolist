@@ -1,8 +1,8 @@
 import React from 'react';
-import {FilterValueType, TaskType} from "./App";
-import TodoListHeader from "./TodoListHeader";
-import Button from "./Button";
-import TasksList from "./TasksList";
+import {FilterValueType, TaskType} from './App';
+import TodoListHeader from './TodoListHeader';
+import Button from './Button';
+import TasksList from './TasksList';
 
 type TodoListPropsType = {
     title: string,
@@ -11,7 +11,7 @@ type TodoListPropsType = {
     changeFilter: (filter: FilterValueType) => void
 }
 
-const TodoList = (props: TodoListPropsType) => {
+const TodoList: React.FC<TodoListPropsType> = (props) => {
     return (
         <div>
             <div>
@@ -24,7 +24,7 @@ const TodoList = (props: TodoListPropsType) => {
 
                 <TasksList
                     tasks={props.tasks}
-                    removeTask ={props.removeTask}
+                    removeTask={props.removeTask}
                 />
 
                 <div>

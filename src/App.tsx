@@ -21,7 +21,7 @@ function App() {
         {id: v1(), title: 'React', isDone: false},
     ]
 ///////////////////////////////////////////////////////
-    let [tasks, setTasks] = useState(initTasks)
+    let [tasks, setTasks] = useState<Array<TaskType>>(initTasks)
     let [filter, setFilter] = useState<FilterValueType>('all')
 
     let tasksForTodoList = tasks;
