@@ -40,6 +40,11 @@ function App() {
         setTasks(tasks.filter(t => t.id !== id))
     }
 
+    const addTask = (title: string) => {
+        const newTask:TaskType = {id: v1(), title: title, isDone: false}
+        setTasks([newTask, ...tasks])
+    }
+
 
     ////////////////////////////////////////////////////////
     return (
@@ -49,6 +54,7 @@ function App() {
                 tasks={tasksForTodoList}
                 removeTask ={removeTask}
                 changeFilter={changeFilter}
+                addTask = {addTask}
             />
         </div>
     );
