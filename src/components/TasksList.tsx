@@ -1,5 +1,5 @@
 import React from 'react';
-import {TaskType} from './App';
+import {TaskType} from '../App';
 import Button from './Button';
 
 type TasksListPropsType = {

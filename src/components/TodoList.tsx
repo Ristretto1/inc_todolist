@@ -1,5 +1,5 @@
 import React from 'react';
-import {FilterValueType, TaskType} from './App';
+import {FilterValueType, TaskType} from '../App';
 import TodoListHeader from './TodoListHeader';
 import Button from './Button';
 import TasksList from './TasksList';
