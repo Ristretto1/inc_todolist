@@ -3,7 +3,7 @@ import {FilterValueType, TaskType} from '../App';
 import TodoListHeader from './TodoListHeader';
 import Button from './Button';
 import TasksList from './TasksList';
-import FullInput from './FullInput';
+import InputBlock from './InputBlock';
 
 type TodoListPropsType = {
     title: string,
@@ -18,7 +18,7 @@ const TodoList: React.FC<TodoListPropsType> = (props) => {
         <div>
             <div>
                 <TodoListHeader title={props.title}/>
-                <FullInput addTask={props.addTask}/>
+                <InputBlock addTask={props.addTask}/>
 
                 <TasksList
                     tasks={props.tasks}
