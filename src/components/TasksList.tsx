@@ -1,30 +1,36 @@
-import React from 'react';
-import {TaskType} from '../App';
-import Button from './Button';
+import React, {ChangeEvent} from 'react';
+import {Button} from './Button';
+import {TaskType} from '../Todolist';
 
 type TasksListPropsType = {
-    tasks: Array<TaskType>,
-    removeTask: (id: string) => void
+    removeTask: (taskId: string) => void
+    tasks: Array<TaskType>
+    changeStatus: (id: string, isDone: boolean) => void
 }
 
-const TasksList: React.FC<TasksListPropsType> = (props) => {
+export const TasksList: React.FC<TasksListPropsType> = (props) => {
 
-
-    let tasksList = props.tasks.map(t => {
-        return (
-            <li key={t.id}>
-                <input type="checkbox" checked={t.isDone}/>
-                <span>{t.title}</span>
-                <Button name={'X'} callBack={() => props.removeTask(t.id)}/>
-            </li>
-        )
-    });
+    const onClickHandler = (id: string) => props.removeTask(id)
+    const onChangeCheckBoxHandler = (id: string, e: ChangeEvent<HTMLInputElement>) => {
+        props.changeStatus(id, e.currentTarget.checked)
+    }
 
     return (
         <ul>
-            {tasksList}
+            {
+                props.tasks.map(t => {
+                    return <li key={t.id} className={t.isDone ?'isDoneTask': ''}>
+                        <input
+                            type="checkbox"
+                            checked={t.isDone}
+                            onChange={(e) => onChangeCheckBoxHandler(t.id, e)}
+                        />
+                        <span>{t.title}</span>
+                        <Button name={'x'} callback={() => onClickHandler(t.id)}/>
+                    </li>
+                })
+            }
         </ul>
     );
 };
 
-export default TasksList;

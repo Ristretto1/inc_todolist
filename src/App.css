@@ -6,3 +6,17 @@
 .App > div {
   margin-right: 50px;
 }
+
+.isDoneTask {
+  opacity: 0.5;
+}
+
+.errorText {
+  color: red;
+  font-weight: bold;
+}
+
+.errorBorder {
+  border: 2px solid red;
+  outline: none;
+}

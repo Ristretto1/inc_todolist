@@ -1,26 +1,35 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import Button from './Button';
-import Input from './Input';
+import React, {useState} from 'react';
+import {Button} from './Button';
+import {Input} from './Input';
 
-type FullInputPropsType = {
-    addTask: (id: string) => void
+type InputBlockPropsType = {
+    title: string
+    setTitle: (title: string) => void
+    addTask: () => void
 }
 
-const InputBlock: React.FC<FullInputPropsType> = (props) => {
-
-    const [title, setTitle] = useState('')
-
+export const InputBlock: React.FC<InputBlockPropsType> = ({title, setTitle, addTask}) => {
+    const [error, setError] = useState<string>('')
     const onAddTaskHandler = () => {
-        props.addTask(title)
-        setTitle('')
+        if(!title.trim()) {
+            setError('Поле обязательно для ввода')
+            return
+        }
+        addTask()
     }
 
     return (
         <div>
-            <Input title={title} setTitle={setTitle} callback={onAddTaskHandler}/>
-            <Button name={'+'} callBack={onAddTaskHandler}/>
+            <Input
+                setTitle={setTitle}
+                title={title}
+                callback={onAddTaskHandler}
+                setError ={setError}
+                className={error ? 'errorBorder':''}
+            />
+            <Button name={'+'} callback={onAddTaskHandler}/>
+            <div className={error && 'errorText'}>{error}</div>
         </div>
     );
 };
 
-export default InputBlock;
