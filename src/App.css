@@ -7,16 +7,18 @@
   margin-right: 50px;
 }
 
-.isDoneTask {
-  opacity: 0.5;
+.error {
+  border: red 1px solid;
 }
 
-.errorText {
+.error-message {
   color: red;
-  font-weight: bold;
 }
 
-.errorBorder {
-  border: 2px solid red;
-  outline: none;
+.active-filter {
+  background-color: aquamarine;
+}
+
+.is-done {
+  opacity: 0.5;
 }
