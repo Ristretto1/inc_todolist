@@ -51,8 +51,8 @@ function App() {
 
     let tasksForTodolist = tasks;
 
-    if (filter === 'active') tasksForTodolist = tasks.filter(t => !t.isDone);
-    if (filter === 'completed') tasksForTodolist = tasks.filter(t => t.isDone);
+    // if (filter === 'active') tasksForTodolist = tasks.filter(t => !t.isDone);
+    // if (filter === 'completed') tasksForTodolist = tasks.filter(t => t.isDone);
 
 
     function changeFilter(todolistId: string, value: FilterValuesType) {
