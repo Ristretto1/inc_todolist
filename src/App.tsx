@@ -56,6 +56,10 @@ function App() {
         setTasks({...tasks});
     }
 
+    const updateTask = (todolistId: string, taskId: string, title: string) => {
+        console.log(title)
+    }
+
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
@@ -120,6 +124,7 @@ function App() {
                         changeTaskStatus={changeStatus}
                         filter={tl.filter}
                         removeTodolist={removeTodolist}
+                        updateTask={updateTask}
                     />
                 })
             }
