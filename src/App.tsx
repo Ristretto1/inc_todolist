@@ -86,7 +86,11 @@ function App() {
         setTasks({...tasks});
     }
 
-    const addTodolist = () => {
+    const addTodolist = (newTitle: string) => {
+        const newId = v1()
+        const newTodolist:TodolistType = {id: newId, title: newTitle, filter: 'all'}
+        setTodolists([newTodolist, ...todolists])
+        setTasks({...tasks, [newId]:[]})
     }
 
 
