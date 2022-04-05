@@ -20,6 +20,7 @@ type PropsType = {
     removeTodolist: (id: string) => void
     filter: FilterValuesType
     updateTask: (todolistId: string, taskId: string, title: string) => void
+    updateTodolist: (todolistId: string, title: string) => void
 }
 
 export function Todolist(props: PropsType) {
@@ -38,8 +39,12 @@ export function Todolist(props: PropsType) {
         props.updateTask(props.id, taskId, title)
     }
 
+    const onUpdateTodolistHandler = (title: string) => props.updateTodolist(props.id, title)
+
     return <div>
-        <h3> {props.title}
+        <h3>
+            <EditableSpan oldTitle={props.title} callback={onUpdateTodolistHandler}/>
+
             <button onClick={removeTodolist}>x</button>
         </h3>
 
@@ -56,7 +61,8 @@ export function Todolist(props: PropsType) {
 
                     return <li key={t.id} className={t.isDone ? 'is-done' : ''}>
                         <input type="checkbox" onChange={onChangeHandler} checked={t.isDone}/>
-                        <EditableSpan oldTitle={t.title} callback={(title: string)=>onUpdateTaskHandler(title, t.id)}/>
+                        <EditableSpan oldTitle={t.title}
+                                      callback={(title: string) => onUpdateTaskHandler(title, t.id)}/>
                         <button onClick={onClickHandler}>x</button>
                     </li>
                 })
