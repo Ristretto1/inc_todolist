@@ -1,4 +1,4 @@
-import {FilterValuesType, TasksStateType, TodolistType} from '../AppWithReducer';
+import {FilterValuesType, TasksStateType, TodolistType} from '../AppWithRedux';
 import {v1} from 'uuid';
 import {AddTodolistActionType, RemoveTodolistActionType} from './todolists-reducer';
 
@@ -83,7 +83,7 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
             return stateCopy;
         }
         default:
-            throw new Error("I don't understand this type")
+            return state
     }
 }
 
