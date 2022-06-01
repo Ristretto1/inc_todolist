@@ -18,7 +18,7 @@ export type TasksStateType = {
 }
 
 
-function App() {
+function AppWithReducer() {
     let todolistId1 = v1();
     let todolistId2 = v1();
 
@@ -178,4 +178,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppWithReducer;
