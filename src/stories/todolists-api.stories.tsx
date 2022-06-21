@@ -1,23 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
+import {todolistsAPI} from '../api/todolists-api';
 
 export default {
     title: 'API'
 }
 
-const settings = {
-    withCredentials: true,
-    headers: {
-        'API-KEY' : 'ac422c12-b2f2-4703-8702-4c62b2f04639'
-    }
-}
+
 
 export const GetTodolists = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
         // здесь мы будем делать запрос и ответ закидывать в стейт.
         // который в виде строки будем отображать в div-ке
-        axios.get('https://social-network.samuraijs.com/api/1.1/todo-lists', settings)
+        todolistsAPI.getTodolists()
             .then(res => setState(res.data))
 
     }, [])
@@ -27,7 +23,7 @@ export const GetTodolists = () => {
 export const CreateTodolist = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        axios.post('https://social-network.samuraijs.com/api/1.1/todo-lists', {title: 'yo'} , settings)
+        todolistsAPI.createTodolists('123')
             .then(res => setState(res.data))
     }, [])
 
@@ -36,10 +32,10 @@ export const CreateTodolist = () => {
 export const DeleteTodolist = () => {
     const [state, setState] = useState<any>(null)
 
-    const todolistId = 'ddc56194-7b3a-4f34-97ab-ff2c5fab0a39'
+    const todolistId = 'a231cdef-3c40-4629-8907-3d591f512735'
 
     useEffect(() => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.1/todo-lists/${todolistId}`, settings)
+        todolistsAPI.deleteTodolists(todolistId)
             .then(res => setState(res.data))
     }, [])
 
@@ -48,10 +44,10 @@ export const DeleteTodolist = () => {
 export const UpdateTodolistTitle = () => {
     const [state, setState] = useState<any>(null)
 
-    const todolistId = 'a231cdef-3c40-4629-8907-3d591f512735'
+    const todolistId = '9dd13f2b-55eb-4d05-8186-4090923a3064'
 
     useEffect(() => {
-        axios.put(`https://social-network.samuraijs.com/api/1.1/todo-lists/${todolistId}`, {title: 'yoYo'} , settings)
+        todolistsAPI.updateTodolists(todolistId, '456')
             .then(res => setState(res.data))
             }, [])
 
