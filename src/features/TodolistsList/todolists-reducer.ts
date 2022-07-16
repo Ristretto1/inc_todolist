@@ -56,8 +56,7 @@ export const fetchTodolistsTC = () => {
                 dispatch(setAppStatusAC('succeeded'))
             })
             .catch((e) => {
-                dispatch(setAppStatusAC('failed'))
-                dispatch(setAppErrorAC(e.message))
+                handleServerNetworkError(e, dispatch)
             })
     }
 }
@@ -71,8 +70,7 @@ export const removeTodolistTC = (todolistId: string) => {
                 dispatch(setAppStatusAC('succeeded'))
             })
             .catch((e) => {
-                dispatch(setAppStatusAC('failed'))
-                dispatch(setAppErrorAC(e.message))
+                handleServerNetworkError(e, dispatch)
             })
     }
 }
@@ -86,7 +84,6 @@ export const addTodolistTC = (title: string) => {
                     dispatch(setAppStatusAC('succeeded'))
                 } else {
                     handleServerAppError(res.data, dispatch)
-                    dispatch(setAppStatusAC('failed'))
                 }
             })
             .catch((e) => {
@@ -103,8 +100,7 @@ export const changeTodolistTitleTC = (id: string, title: string) => {
                 dispatch(setAppStatusAC('succeeded'))
             })
             .catch((e) => {
-                dispatch(setAppStatusAC('failed'))
-                dispatch(setAppErrorAC(e.message))
+                handleServerNetworkError(e, dispatch)
             })
     }
 }
