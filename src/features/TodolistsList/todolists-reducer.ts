@@ -51,6 +51,10 @@ export const fetchTodolistsTC = () => {
                 dispatch(setTodolistsAC(res.data))
                 dispatch(setAppStatusAC('succeeded'))
             })
+            .catch((e)=> {
+                dispatch(setAppStatusAC('failed'))
+                dispatch(setAppErrorAC(e.message))
+            })
     }
 }
 export const removeTodolistTC = (todolistId: string) => {
@@ -61,6 +65,10 @@ export const removeTodolistTC = (todolistId: string) => {
             .then((res) => {
                 dispatch(removeTodolistAC(todolistId))
                 dispatch(setAppStatusAC('succeeded'))
+            })
+            .catch((e)=> {
+                dispatch(setAppStatusAC('failed'))
+                dispatch(setAppErrorAC(e.message))
             })
     }
 }
@@ -81,6 +89,10 @@ export const addTodolistTC = (title: string) => {
                     dispatch(setAppStatusAC('failed'))
                 }
             })
+            .catch((e)=> {
+                dispatch(setAppStatusAC('failed'))
+                dispatch(setAppErrorAC(e.message))
+            })
     }
 }
 export const changeTodolistTitleTC = (id: string, title: string) => {
@@ -90,6 +102,10 @@ export const changeTodolistTitleTC = (id: string, title: string) => {
             .then((res) => {
                 dispatch(changeTodolistTitleAC(id, title))
                 dispatch(setAppStatusAC('succeeded'))
+            })
+            .catch((e)=> {
+                dispatch(setAppStatusAC('failed'))
+                dispatch(setAppErrorAC(e.message))
             })
     }
 }

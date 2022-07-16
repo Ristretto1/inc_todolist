@@ -58,6 +58,10 @@ export const fetchTasksTC = (todolistId: string) => (dispatch: Dispatch<ActionsT
             dispatch(action)
             dispatch(setAppStatusAC('succeeded'))
         })
+        .catch((e)=> {
+            dispatch(setAppStatusAC('failed'))
+            dispatch(setAppErrorAC(e.message))
+        })
 }
 export const removeTaskTC = (taskId: string, todolistId: string) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
@@ -66,6 +70,10 @@ export const removeTaskTC = (taskId: string, todolistId: string) => (dispatch: D
             const action = removeTaskAC(taskId, todolistId)
             dispatch(action)
             dispatch(setAppStatusAC('succeeded'))
+        })
+        .catch((e)=> {
+            dispatch(setAppStatusAC('failed'))
+            dispatch(setAppErrorAC(e.message))
         })
 }
 
@@ -86,6 +94,11 @@ export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispa
                 dispatch(setAppStatusAC('failed'))
             }
         })
+        .catch((e)=> {
+            dispatch(setAppStatusAC('failed'))
+            dispatch(setAppErrorAC(e.message))
+        })
+
 }
 
 export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string) =>
@@ -114,6 +127,10 @@ export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelT
                 const action = updateTaskAC(taskId, domainModel, todolistId)
                 dispatch(action)
                 dispatch(setAppStatusAC('succeeded'))
+            })
+            .catch((e)=> {
+                dispatch(setAppStatusAC('failed'))
+                dispatch(setAppErrorAC(e.message))
             })
     }
 
