@@ -4,7 +4,9 @@
 let a1 = [5,7,9, 11, 13, 15];
 
 function f1() {
-
+    for (let i = 0; i < a1.length; i++) {
+       document.querySelector('.out-1').innerHTML += `${a1[i]} `;
+    }
 }
 
 document.querySelector('.b-1').addEventListener('click', f1);
@@ -15,7 +17,9 @@ document.querySelector('.b-1').addEventListener('click', f1);
 let a2 = [5,7,9, 11, 13, 15];
 
 function f2() {
-
+    for (let i = 0; i < a2.length; i++) {
+        document.querySelector('.out-2').innerHTML += `${i} ${a1[i]} `;
+     }
 }
 
 document.querySelector('.b-2').addEventListener('click', f2);
@@ -24,7 +28,10 @@ document.querySelector('.b-2').addEventListener('click', f2);
 //При нажатии .b-3 выполняете функцию f3. Функция получает div.out-3 со страницы с помощью getElementsByClassName и в каждый записывает число 3, перезаписывая содержимое div.
 
 function f3() {
-
+    const arr3 = document.getElementsByClassName('out-3');
+    for (let i = 0; i < arr3.length; i++) {
+        arr3[i].innerHTML = 3;
+     }
 }
 
 document.querySelector('.b-3').addEventListener('click', f3);
@@ -34,7 +41,10 @@ document.querySelector('.b-3').addEventListener('click', f3);
 //При нажатии .b-4 выполняете функцию f4. Функция получает div.out-4 со страницы с помощью querySelectorAll и в каждый дописывает число 4.
 
 function f4() {
-
+    const arr4 = document.querySelectorAll('div.out-4');
+    for (let i = 0; i < arr4.length; i++) {
+        arr4[i].innerHTML = 4;
+     }
 }
 
 document.querySelector('.b-4').addEventListener('click', f4);
@@ -45,7 +55,11 @@ document.querySelector('.b-4').addEventListener('click', f4);
 let a5 = [3,4,5,2,1,7,8,2,4,6,8,11,23,17];
 
 function f5() {
-
+    const newA5 = []
+    for(let num of a5) {
+        newA5.push(num + 7)
+    }
+    return newA5
 }
 
 document.querySelector('.b-5').addEventListener('click', ()=> {
@@ -58,18 +72,30 @@ document.querySelector('.b-5').addEventListener('click', ()=> {
 let a6 = [[1,2], [3,4], [5,6]];
 
 function f6() {
-
+    const arr6 = a6.flat()
+    for (let i = 0; i < arr6.length; i++) {
+        document.querySelector('.out-6').innerHTML += `${arr6[i]} `;
+     }
 }
 
 document.querySelector('.b-6').addEventListener('click', f6);
 
 // Task 7
-//При нажатии .b-7 выполняете функцию f7. Функция должна переиндексировать массив a7. Что имеется ввиду. Сейчас у нас обычный массив, который содержит вложенные объекты. Вам необходимо сделать из a7 объект, где ключи - значения id из вложенных массивов, а значения - имя (т.е { 23 : Ivan, 45 : Petr}. Функция должна возвращать результирующий массив.
+// При нажатии .b-7 выполняете функцию f7. Функция должна переиндексировать массив a7. 
+// Что имеется ввиду. Сейчас у нас обычный массив, который содержит вложенные объекты. 
+// Вам необходимо сделать из a7 объект, где ключи - значения id из вложенных массивов, а значения - имя (т.е { 23 : Ivan, 45 : Petr}. 
+// Функция должна возвращать результирующий массив.
 
 let a7 = [{ id : 23, name: 'Ivan'}, {id: 45, name : 'Petr'}];
 
 function f7() {
-
+    let arr7 = {}
+    for(let i = 0; i < a7.length; i++) {
+        let key = a7[i].id
+        let value = a7[i].name
+        arr7[key] = value
+    }
+    return arr7
 }
 
 document.querySelector('.b-7').addEventListener('click', ()=>{
@@ -78,12 +104,19 @@ document.querySelector('.b-7').addEventListener('click', ()=>{
 
 
 // Task 8
-//При нажатии .b-8 выполняете функцию f8. Функция должна переиндексировать массив a8. Что имеется ввиду. Сейчас у нас обычный массив, который содержит вложенные объекты. Вам необходимо сделать из a8 массив, который будет содержать только числовые id. Т.е. [23, 45]. Функция должна возвращать результирующий массив.
+// При нажатии .b-8 выполняете функцию f8. Функция должна переиндексировать массив a8. Что имеется ввиду. 
+// Сейчас у нас обычный массив, который содержит вложенные объекты. Вам необходимо сделать из a8 массив, который будет содержать только числовые id. Т.е. [23, 45]. 
+// Функция должна возвращать результирующий массив.
 
 let a8 = [ { id : 23, name: 'Ivan'}, {id: 45, name : 'Petr'}];
 
 function f8() {
-
+    let arr8 = []
+    for(let i = 0; i < a8.length; i++) {
+        let key = a8[i].id
+        arr8.push(key)
+    }
+    return arr8
 }
 
 document.querySelector('.b-8').addEventListener('click', ()=>{
@@ -91,12 +124,21 @@ document.querySelector('.b-8').addEventListener('click', ()=>{
 });
 
 // Task 9
-//При нажатии .b-9 выполняете функцию f9. Функция должна возвращать в out-9 самый большой индекс из вложенных в a9 массивов. В данном случае это 4. Т.е. самый большой вложенный массив это [0,0,0,0,0], а в нем самый большой индекс 4.
+// При нажатии .b-9 выполняете функцию f9. 
+// Функция должна возвращать в out-9 самый большой индекс из вложенных в a9 массивов. 
+// В данном случае это 4. Т.е. самый большой вложенный массив это [0,0,0,0,0], а в нем самый большой индекс 4.
 
-let a9 = [ [4,3,2], [2,5], [0,0,0,0,0]];
+let a9 = [ [4,3,2], [2,5], [0,0,0,0,0,0,0,0]];
 
 function f9() {
+    let highIndex = a9.length - 1
 
+    for (let i = 0; i < a9.length; i++) {
+        if(highIndex < a9[i].length - 1)
+        highIndex = a9[i].length - 1
+     }
+
+     return highIndex
 }
 
 document.querySelector('.b-9').addEventListener('click', ()=>{
@@ -109,7 +151,12 @@ document.querySelector('.b-9').addEventListener('click', ()=>{
 let a10 = [4, 6, 9, 'Hello'];
 
 function f10() {
-
+    let arr10 = {}
+    for(let i = 0; i < a10.length; i++) {
+        let value = a10[i]
+        arr10[value] = value
+    }
+    return arr10
 }
 
 document.querySelector('.b-10').addEventListener('click', () => {
@@ -127,7 +174,11 @@ let a11 = {
 }
 
 function f11() {
-
+    for(index in a11) {
+        if(a11[index] > 10) {
+            document.querySelector('.out-11').innerHTML += `${a11[index]} `
+        }
+    }
 }
 
 document.querySelector('.b-11').addEventListener('click', f11);
@@ -138,7 +189,9 @@ document.querySelector('.b-11').addEventListener('click', f11);
 let a12 = [4,5,6,7];
 
 function f12() {
-
+    for(let key of a12) {
+        document.querySelector('.out-12').innerHTML += `${key} `
+    }
 }
 
 document.querySelector('.b-12').addEventListener('click', f12);
@@ -150,7 +203,9 @@ document.querySelector('.b-12').addEventListener('click', f12);
 let a13 = 'testone';
 
 function f13() {
-
+    for(let key of a13) {
+        document.querySelector('.out-13').innerHTML += `${key} `
+    }
 }
 
 document.querySelector('.b-13').addEventListener('click', f13);
