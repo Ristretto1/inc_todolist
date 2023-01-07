@@ -203,8 +203,8 @@ document.querySelector('.b-12').addEventListener('click', f12);
 let a13 = 'testone';
 
 function f13() {
-    for(let key of a13) {
-        document.querySelector('.out-13').innerHTML += `${key} `
+    for(let item of a13) {
+        document.querySelector('.out-13').innerHTML += `${item} `
     }
 }
 
@@ -218,17 +218,24 @@ document.querySelector('.b-13').addEventListener('click', f13);
 let a14 = new Set([4,5,6]);
 
 function f14() {
-
+    for(let item of a14) {
+        document.querySelector('.out-14').innerHTML += `${item} `
+    }
 }
 
 document.querySelector('.b-14').addEventListener('click', f14);
 
 // Task 15
-//При нажатии .b-15 выполняете функцию f15. Функция должна получить NodeList элементов .out-15 c помощью document.querySelectorAll, затем c помощью for of перебрать полученную коллекцию элементов .out-15 записать внутрь них число 15 ( затерев содержимое).
+// При нажатии .b-15 выполняете функцию f15. 
+// Функция должна получить NodeList элементов .out-15 c помощью document.querySelectorAll, 
+// затем c помощью for of перебрать полученную коллекцию элементов .out-15 записать внутрь них число 15 ( затерев содержимое).
 
 
 function f15() {
-
+    const arr15 = document.querySelectorAll('.out-15')
+    for(let item of arr15) {
+        item.innerHTML = 15
+    }
 }
 
 document.querySelector('.b-15').addEventListener('click', f15);
