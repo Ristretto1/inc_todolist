@@ -1,0 +1,20 @@
+.footer_button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #5b5e7e;
+  cursor: pointer;
+}
+
+.footer_button.active {
+  color: #3a7cfd;
+  cursor: auto;
+}
+.footer_button:disabled {
+  color: #3f4258;
+  cursor: auto;
+}
+
+.footer_button:not(.active):not(:disabled):hover {
+  color: #878aac;
+}
