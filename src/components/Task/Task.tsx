@@ -1,23 +1,23 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FC } from 'react';
 import s from './Task.module.css';
-import { ITaskProps } from './Task.types';
+import { ITaskProps } from './types';
 
-export const Task = ({ changeStatus, data }: ITaskProps) => {
-  const changeStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    changeStatus(data.id, e.currentTarget.checked);
+export const Task: FC<ITaskProps> = ({ onChangeStatus, task }) => {
+  const handleChangeStatus = (e: ChangeEvent<HTMLInputElement>) => {
+    onChangeStatus(task.id, e.currentTarget.checked);
   };
 
   return (
-    <label className={`${s.task} ${data.isDone ? s.done : ''}`}>
+    <label className={`${s.task} ${task.isDone ? s.done : ''}`}>
       <input
         className={s.checkbox}
-        checked={data.isDone}
+        checked={task.isDone}
         type='checkbox'
         name='task'
         id='task'
-        onChange={changeStatusHandler}
+        onChange={handleChangeStatus}
       />
-      {data.title}
+      {task.title}
     </label>
   );
 };

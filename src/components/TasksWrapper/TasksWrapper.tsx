@@ -1,32 +1,37 @@
 import { Task } from '../Task/Task';
-import { ITasksWrapperProps } from './TasksWrapper.types';
+import { ITasksWrapperProps } from './types';
 import s from './TasksWrapper.module.css';
 import { Footer } from '../Footer/Footer';
-import { IFilter, ITask } from '../../common/types/task.types';
-import { useState } from 'react';
+import { FilterEnum, ITask } from '../../common/types/task.types';
+import { FC, useState } from 'react';
 
-export const TasksWrapper = ({ tasks, changeStatus, removeAllCompleted }: ITasksWrapperProps) => {
-  const [filter, setFilter] = useState<IFilter>('all');
+export const TasksWrapper: FC<ITasksWrapperProps> = ({ tasks, onChangeStatus, onRemoveAllCompleted }) => {
+  const [filter, setFilter] = useState<FilterEnum>(FilterEnum.all);
 
-  const filterTasks = (filter: IFilter, tasks: ITask[]): ITask[] => {
+  const handleFilterTasks = (filter: FilterEnum, tasks: ITask[]): ITask[] => {
     if (filter === 'active') return tasks.filter((t) => !t.isDone);
     if (filter === 'completed') return tasks.filter((t) => t.isDone);
     return tasks;
   };
 
-  const changeFilter = (filter: IFilter) => {
+  const handleChangeFilter = (filter: FilterEnum) => {
     setFilter(() => filter);
   };
 
-  const filteredTasks = filterTasks(filter, tasks);
+  const filteredTasks = handleFilterTasks(filter, tasks);
   const mappedTasks = filteredTasks.map((t) => {
-    return <Task key={t.id} data={t} changeStatus={changeStatus} />;
+    return <Task key={t.id} task={t} onChangeStatus={onChangeStatus} />;
   });
 
   return (
     <div className={s.tasks_wrapper}>
       {tasks.length ? mappedTasks : <div className={s.template_task}>You don't have any tasks. Create first</div>}
-      <Footer tasks={tasks} removeAllCompleted={removeAllCompleted} changeFilter={changeFilter} filter={filter} />
+      <Footer
+        tasks={tasks}
+        onRemoveAllCompleted={onRemoveAllCompleted}
+        onChangeFilter={handleChangeFilter}
+        filter={filter}
+      />
     </div>
   );
 };

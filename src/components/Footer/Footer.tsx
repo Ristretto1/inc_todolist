@@ -1,25 +1,27 @@
-import { IFooterProps } from './Footer.types';
+import { IFooterProps } from './types';
 import s from './Footer.module.css';
 import { FooterButton } from './FooterButton/FooterButton';
+import { FC } from 'react';
+import { FilterEnum } from '../../common/types/task.types';
 
-export const Footer = ({ tasks, removeAllCompleted, changeFilter, filter }: IFooterProps) => {
+export const Footer: FC<IFooterProps> = ({ tasks, onRemoveAllCompleted, onChangeFilter, filter }) => {
   const completedTasks = tasks.filter((el) => el.isDone);
 
   return (
     <div className={s.footer}>
       <span>{completedTasks.length} items left</span>
       <div className={s.filters_wrapper}>
-        <FooterButton isActive={filter === 'all'} onClick={() => changeFilter('all')}>
+        <FooterButton isActive={filter === FilterEnum.all} onClick={() => onChangeFilter(FilterEnum.all)}>
           All
         </FooterButton>
-        <FooterButton isActive={filter === 'active'} onClick={() => changeFilter('active')}>
+        <FooterButton isActive={filter === FilterEnum.active} onClick={() => onChangeFilter(FilterEnum.active)}>
           Active
         </FooterButton>
-        <FooterButton isActive={filter === 'completed'} onClick={() => changeFilter('completed')}>
+        <FooterButton isActive={filter === FilterEnum.completed} onClick={() => onChangeFilter(FilterEnum.completed)}>
           Complete
         </FooterButton>
       </div>
-      <FooterButton disabled={completedTasks.length === 0} onClick={removeAllCompleted}>
+      <FooterButton disabled={completedTasks.length === 0} onClick={onRemoveAllCompleted}>
         Clear Completed
       </FooterButton>
     </div>

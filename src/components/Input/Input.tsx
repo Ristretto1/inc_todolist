@@ -1,14 +1,14 @@
-import { IInputProps } from './Input.types';
+import { IInputProps } from './types';
 import s from './Input.module.css';
 import { useState, KeyboardEvent, FC } from 'react';
 
-export const Input = ({ addTask, ...props }: IInputProps) => {
+export const Input: FC<IInputProps> = ({ onAddTask, ...props }) => {
   const [value, setValue] = useState<string>('');
 
-  const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       if (value.trim()) {
-        addTask({ isDone: false, title: value, id: Date.now() });
+        onAddTask({ isDone: false, title: value, id: Date.now() });
         setValue('');
       }
     }
@@ -18,7 +18,7 @@ export const Input = ({ addTask, ...props }: IInputProps) => {
     <input
       value={value}
       onChange={(e) => setValue(e.currentTarget.value)}
-      onKeyDown={onKeyDownHandler}
+      onKeyDown={handleKeyDown}
       className={s.input}
       {...props}
     />

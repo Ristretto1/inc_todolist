@@ -4,4 +4,8 @@ export interface ITask {
   id: number;
 }
 
-export type IFilter = 'all' | 'active' | 'completed';
+export enum FilterEnum {
+  all = 'all',
+  active = 'active',
+  completed = 'completed'
+}
