@@ -2,10 +2,11 @@
 
 body {
   padding-top: 50px;
-  background-color: #171823;
+  background: rgb(23, 24, 35);
+  background: linear-gradient(165deg, rgb(23, 24, 35) 30%, rgb(48, 50, 72) 100%);
   display: flex;
   justify-content: center;
-  align-items: center;
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
+  height: 100vh;
 }

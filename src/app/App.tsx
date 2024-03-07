@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className={s.app}>
-      <Input placeholder='Создай новую задачу...' addTask={addTask} />
+      <Input placeholder='Create a new todo…' addTask={addTask} />
       <TasksWrapper tasks={tasks} changeStatus={changeStatus} removeAllCompleted={removeAllCompleted} />
     </div>
   );

@@ -19,12 +19,13 @@ export const TasksWrapper = ({ tasks, changeStatus, removeAllCompleted }: ITasks
   };
 
   const filteredTasks = filterTasks(filter, tasks);
+  const mappedTasks = filteredTasks.map((t) => {
+    return <Task key={t.id} data={t} changeStatus={changeStatus} />;
+  });
 
   return (
     <div className={s.tasks_wrapper}>
-      {filteredTasks.map((t) => {
-        return <Task key={t.id} data={t} changeStatus={changeStatus} />;
-      })}
+      {tasks.length ? mappedTasks : <div className={s.template_task}>You don't have any tasks. Create first</div>}
       <Footer tasks={tasks} removeAllCompleted={removeAllCompleted} changeFilter={changeFilter} filter={filter} />
     </div>
   );

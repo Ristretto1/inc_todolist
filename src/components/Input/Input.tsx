@@ -1,6 +1,6 @@
 import { IInputProps } from './Input.types';
 import s from './Input.module.css';
-import { useState, KeyboardEvent } from 'react';
+import { useState, KeyboardEvent, FC } from 'react';
 
 export const Input = ({ addTask, ...props }: IInputProps) => {
   const [value, setValue] = useState<string>('');
