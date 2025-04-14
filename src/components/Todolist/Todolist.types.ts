@@ -1,10 +1,9 @@
+import { Filter, ITask } from "../utils/types";
+
 export interface ITodolistProps {
   title: string;
-  tasks: ITodolistItem[];
-}
-
-interface ITodolistItem {
-  id: number;
-  title: string;
-  isDone: boolean;
+  tasks: ITask[];
+  onRemoveTask: (id: number) => void;
+  filter: Filter;
+  onSetFilter: (filter: Filter) => void;
 }

@@ -1,8 +1,14 @@
 import { FC } from "react";
 import { ITodolistProps } from "./Todolist.types";
 import { Button } from "../Button/Button";
+import { Filter } from "../utils/types";
 
-export const Todolist: FC<ITodolistProps> = ({ title, tasks }) => {
+export const Todolist: FC<ITodolistProps> = ({
+  title,
+  tasks,
+  onRemoveTask,
+  onSetFilter,
+}) => {
   return (
     <div>
       <h3>{title}</h3>
@@ -17,6 +23,7 @@ export const Todolist: FC<ITodolistProps> = ({ title, tasks }) => {
             <li key={task.id}>
               <input type="checkbox" checked={task.isDone} />
               <span>{task.title}</span>
+              <Button onClick={() => onRemoveTask(task.id)}>x</Button>
             </li>
           ))}
         </ul>
@@ -25,9 +32,9 @@ export const Todolist: FC<ITodolistProps> = ({ title, tasks }) => {
       )}
 
       <div>
-        <Button>All</Button>
-        <Button>Active</Button>
-        <Button>Completed</Button>
+        <Button onClick={() => onSetFilter(Filter.ALL)}>All</Button>
+        <Button onClick={() => onSetFilter(Filter.ACTIVE)}>Active</Button>
+        <Button onClick={() => onSetFilter(Filter.COMPLETED)}>Completed</Button>
       </div>
     </div>
   );
