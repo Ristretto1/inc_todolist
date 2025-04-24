@@ -2,18 +2,19 @@ import { useState } from "react";
 import "./App.css";
 import { Todolist } from "./components/Todolist/Todolist";
 import { Filter, ITask } from "./components/utils/types";
+import { v1 } from "uuid";
 
 export const App = () => {
-  const [tasks, setTasks] = useState<ITask[]>([
-    { id: 1, title: "HTML&CSS", isDone: true },
-    { id: 2, title: "JS", isDone: true },
-    { id: 3, title: "ReactJS", isDone: false },
-  ]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
 
   const [filter, setFilter] = useState<Filter>(Filter.ALL);
 
-  const handleRemoveTask = (id: number) => {
+  const handleRemoveTask = (id: string) => {
     setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const handleAddTask = (title: string) => {
+    setTasks([...tasks, { id: v1(), title, isDone: false }]);
   };
 
   const filteredTasks = (): ITask[] => {
@@ -34,6 +35,7 @@ export const App = () => {
         onRemoveTask={handleRemoveTask}
         filter={filter}
         onSetFilter={setFilter}
+        onAddTask={handleAddTask}
       />
     </div>
   );
